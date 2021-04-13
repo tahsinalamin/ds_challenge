@@ -1,7 +1,5 @@
-# ds_challenge
-Eluvio DS Challenge
+# Eluvio DS Challenge
 
-# Project #
 The project has following parts:
 
 ## Part 1: Data Preprocessing ##
