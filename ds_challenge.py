@@ -99,8 +99,8 @@ vectorizer = TfidfVectorizer(analyzer = 'word', stop_words=stopwords)
 tfidf_matrix = vectorizer.fit_transform(title)
 print(tfidf_matrix.shape)
 
-
-up_vote_threshold = np.percentile(df.up_votes,0.8)
+# select 80% as upvote class 1, otherwise 0
+up_vote_threshold = np.percentile(df.up_votes,80)
 def up_vote_class(row):
     if row["up_votes"] >= up_vote_threshold:
         val = 1
@@ -150,6 +150,7 @@ from nltk.corpus import stopwords
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
+#fork the original data set.
 df2 = df
 
 title = df2["title"].str.cat(sep=' ').lower() #lower case; otherwise string mismatch
