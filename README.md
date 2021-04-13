@@ -21,10 +21,11 @@ The project has following parts:
  2. Random Forest.
  3. Support Vector Machine.
  
+ 
   ### Problem 2: Text Processing ###
 Generate a word cloud from the Titles.
 
-### Problem 3: Business Analytics ###
+### Problem 3: Insightful Business Analytics ###
 Problems handled:
 
 1. Number of posts per year. Number of posts vs Year plot.
