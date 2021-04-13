@@ -19,7 +19,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn import svm
 
 #command line arguments
-sys.argv=["k_gamma.py","dataset=Eluvio_DS_challenge.csv"]
+#sys.argv=["k_gamma.py","dataset=Eluvio_DS_challenge.csv"]
 
 #reading dataset
 if len(sys.argv)!=2:
@@ -79,8 +79,6 @@ print(df.head(5))
 Problem 1: Predict the number of Up votes given the data set.
 """
 
-
-
 #forking the previous dataframe 
 df1 = df
 
@@ -115,7 +113,6 @@ y = np.array(df1.up_votes)
 
 y = df1.up_votes
 y = np.array(y)
-#df1_data= df[["title","over_18","year","month","day","day_of_week","hour","author_id"]]
 
 ##train test split
 X_train, X_test, y_train, y_test = train_test_split(tfidf_matrix, y, test_size=0.20, shuffle=True, random_state=42)
@@ -127,18 +124,7 @@ clf.fit(X_train,y_train)
 y_predict = clf.predict(X_test)
 
 print(classification_report(y_test,y_predict))
-"""
-              precision    recall  f1-score   support
 
-           0       0.82      1.00      0.90     82084
-           1       0.28      0.00      0.01     18290
-
-    accuracy                           0.82    100374
-   macro avg       0.55      0.50      0.45    100374
-weighted avg       0.72      0.82      0.74    100374
-"""
-
-"""
 ## RandomForest.
 rfc = RandomForestClassifier(n_estimators = 100)
 rfc.fit(X_train, y_train)
@@ -152,7 +138,7 @@ clf2.fit(X_train, y_train)
 y_predict = clf2.predict(X_test)
 
 print(classification_report(y_test, y_predict))
-"""
+
 
 """
 Problem 2: Sentiment analysis
@@ -228,16 +214,3 @@ ax.set_title("Top authors with number of posts in month=December")
 top_votes_by_year = df.groupby("year").agg({"up_votes":np.max}) #get top votes by year
 posts_by_year = pd.merge(top_votes_by_year, df2, on=["up_votes","year"]) #join with original dataframe
 print(posts_by_year[["year","title","author"]]) #filter the columns
-"""
-output:
-   year                                              title            author
-0  2008  Today Israel takes down an entire apt building...     silencergroup
-1  2009  How do I know China wrecked the Copenhagen dea...         carsonbiz
-2  2010  Dear World, The Chinese government stole intel...  frenchphrasebook
-3  2011            North Korea Leader Kim-Jong Il has died            Merytz
-4  2012  Canada creates $5,000 cap on liability for fil...            mepper
-5  2013   What we have... is... concrete proof of U.S.-...       dantesinfer
-6  2014  NASA officially announces Manned Mars Mission,...   Herman999999999
-7  2015  A biotech startup has managed to 3-D print fak...         KRISHNA53
-8  2016  2.6 terabyte leak of Panamanian shell company ...      mister_geaux
-"""
