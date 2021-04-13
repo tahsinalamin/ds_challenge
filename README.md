@@ -15,8 +15,11 @@ The project has following parts:
  
  ## Part 2: Define Problem and Generate Solution ##
  ### Problem 1: Predict the number of Up votes given the data set ###
- Algorithms Applied:
- 
+ - Remove outliers.
+ - Tf-IDF vectorize text.
+ - Up vote class generation.
+ - Train-test Split
+ - Algorithms Applied:
  1. Multinominal Naive Bayes.
  2. Random Forest.
  3. Support Vector Machine.
